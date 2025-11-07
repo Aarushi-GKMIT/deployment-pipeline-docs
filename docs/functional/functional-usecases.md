@@ -5,7 +5,7 @@ Each use case explains how different system components interact internally to de
 
 ---
 
-## 1. User Authentication
+## 1. User Authentication and Authorization
 
 **Goal:**  
 Provide secure sign-up and login for users.
