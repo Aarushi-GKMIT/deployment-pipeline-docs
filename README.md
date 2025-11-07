@@ -1,4 +1,4 @@
-This repository contains mkdocs documentation for the project "React Frontend Deployment Pipeline" 
+This repository contains mkdocs documentation for the project "Deployment Pipeline" 
 It contains functional and usecase documentation of the project.
 It defines project's functional and business use cases.
 
