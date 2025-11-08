@@ -10,10 +10,10 @@ Each use case explains how different system components interact internally to de
 **Goal:** Provide secure sign-up and login for users.
 
 **Flow:**
-1. User sends a sign-up or login request to the API server.
-2. Server validates input and checks the database for existing users.
-3. Passwords are hashed and stored securely.
-4. On successful login, a JWT token is generated and returned.
+1. User sends a sign-up or login request to the API server.</br>
+2. Server validates input and checks the database for existing users.</br>
+3. Passwords are hashed and stored securely.</br>
+4. On successful login, a JWT token is generated and returned.</br>
 5. Subsequent requests include this token for authorization.
 
 **System Behavior:**
@@ -74,5 +74,5 @@ Each use case explains how different system components interact internally to de
 
 This diagram visually maps the actors and their interaction with the main system features discussed in the functional requirements.
 
-![UML Use Case Diagram for Frontend Deployment Pipeline](usecase-diagram.jpg)
+![UML Use Case Diagram for Frontend Deployment Pipeline](project-usecase-diagram.jpeg)
 
