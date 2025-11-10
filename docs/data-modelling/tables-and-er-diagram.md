@@ -11,7 +11,7 @@ This section outlines the database schema used in the project, detailing each ta
 | `id` | String (UUID) | Primary Key | Unique identifier for each user. |
 | `name` | String |  | User’s full name for display. |
 | `email` | String | Unique, Indexed | Used for authentication and identification. |
-| `role` | String | User and Admin Role
+| `role` | enum | User and Admin Role
 | `password` | String |  | Securely stored hashed password. |
 | `createdAt` | DateTime | Default: now() | Timestamp when the user was created. |
 | `updatedAt` | DateTime | Auto-updated | Timestamp for last update. |
@@ -47,6 +47,7 @@ This section outlines the database schema used in the project, detailing each ta
 
 ---
 
+
 ## Relationships Summary
 
 - **User → Project**: One-to-Many (a user can own multiple projects).
@@ -62,7 +63,7 @@ erDiagram
         string id PK
         string name
         string email UK
-        string role
+        enum role
         string password
         datetime created_at
         datetime updated_at
