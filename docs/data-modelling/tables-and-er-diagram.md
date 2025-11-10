@@ -11,6 +11,7 @@ This section outlines the database schema used in the project, detailing each ta
 | `id` | String (UUID) | Primary Key | Unique identifier for each user. |
 | `name` | String (Optional) |  | User’s full name for display. |
 | `email` | String | Unique, Indexed | Used for authentication and identification. |
+| `role` | String | User and Admin Role
 | `password` | String |  | Securely stored hashed password. |
 | `createdAt` | DateTime | Default: now() | Timestamp when the user was created. |
 | `updatedAt` | DateTime | Auto-updated | Timestamp for last update. |
@@ -61,6 +62,7 @@ erDiagram
         string id PK
         string name
         string email UK
+        string role
         string password
         datetime createdAt
         datetime updatedAt
