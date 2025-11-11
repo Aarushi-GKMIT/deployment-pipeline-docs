@@ -505,6 +505,234 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Schema Design
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Schema Design
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-modelling/tables-and-er-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tables and ER Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data-modelling/indexing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Indexing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Technical Document
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Technical Document
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-document/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cloud-Infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-document/data-flow-diagram/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data-Flow-Diagram
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-document/authentication-and-autherization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Authentication-And-Autherization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../technical-document/technical-stack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Technical Stack
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -657,7 +885,7 @@ It enables users to go from source code to a live, shareable URL without manual 
 <li>
 <p><strong>Automated Build Process</strong>  </p>
 </li>
-<li>A <strong>build server</strong>, running as an ECS task, builds the project using pre-defined Docker images stored in <strong>AWS ECR</strong>.  </li>
+<li>A build server, running as an ECS task, builds the project using pre-defined Docker images stored in AWS ECR.  </li>
 <li>The environment includes dependencies such as Node.js to compile React applications.  </li>
 <li>
 <p>Once the build completes, the system generates production-ready files (HTML, CSS, JS).</p>
@@ -665,7 +893,7 @@ It enables users to go from source code to a live, shareable URL without manual 
 <li>
 <p><strong>Artifact Upload to AWS S3</strong>  </p>
 </li>
-<li>The built static files are uploaded to a designated <strong>S3 bucket</strong>.  </li>
+<li>The built static files are uploaded to a designated S3 bucket.  </li>
 <li>The system assigns each deployment a unique directory or version ID for organized storage and rollback capability.  </li>
 <li>
 <p>Appropriate access policies are applied to ensure security and isolation per project.</p>
@@ -673,7 +901,7 @@ It enables users to go from source code to a live, shareable URL without manual 
 <li>
 <p><strong>Serving via Reverse Proxy</strong>  </p>
 </li>
-<li>A <strong>custom reverse proxy</strong> fetches files from S3 in real time and streams them to clients.  </li>
+<li>A custom reverse proxy fetches files from S3 in real time and streams them to clients.  </li>
 <li>It ensures low latency, caching, and HTTPS support.  </li>
 <li>This allows users to instantly access the deployed application via a generated live URL.</li>
 </ol>
@@ -682,23 +910,23 @@ It enables users to go from source code to a live, shareable URL without manual 
 <p>The system is divided into several modules that work together to achieve complete automation:</p>
 <h3 id="1-user-authentication-and-autherization">1. <strong>User Authentication and Autherization</strong></h3>
 <p>Handles secure access to the system.<br />
-- Users can <strong>sign up, log in, and manage their profiles</strong>.<br />
+- Users can sign up, log in, and manage their profiles.<br />
 - Passwords are encrypted before storage.<br />
 - JWT (JSON Web Tokens) or session-based authentication ensures secure API communication.</p>
 <h3 id="2-project-management">2. <strong>Project Management</strong></h3>
 <p>Links user accounts to their GitHub repositories.<br />
-- Users can <strong>create, view, and manage projects</strong>.<br />
+- Users can create, view, and manage projects.<br />
 - Each project record stores metadata such as repository URL, project name, and user ID.<br />
 - A single user can have multiple projects.</p>
 <h3 id="3-automated-build-deployment">3. <strong>Automated Build &amp; Deployment</strong></h3>
 <p>Responsible for compiling and preparing production builds.<br />
-- The API server triggers a <strong>build job</strong> using AWS ECS tasks.<br />
+- The API server triggers a build job using AWS ECS tasks.<br />
 - Each build is isolated and stateless, ensuring consistency and reproducibility.<br />
 - Logs, build status, and progress are tracked and linked to a specific deployment record.</p>
 <h3 id="4-file-hosting-and-delivery">4. <strong>File Hosting and Delivery</strong></h3>
 <p>Ensures fast and reliable access to deployed applications.<br />
 - Build artifacts are uploaded to AWS S3 with public-read or signed URL access.<br />
-- A <strong>reverse proxy layer</strong> retrieves and streams these files to users in real time.<br />
+- A reverse proxy layer retrieves and streams these files to users in real time.<br />
 - This design supports horizontal scaling for high-traffic applications.</p>
 <h3 id="5-database-management">5. <strong>Database Management</strong></h3>
 <p>Stores essential project data and deployment history.<br />

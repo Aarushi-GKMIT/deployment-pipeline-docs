@@ -8,14 +8,14 @@ This section outlines the database schema used in the project, detailing each ta
 
 | Field | Type | Constraints | Description / Use Case |
 |-------|------|--------------|-------------------------|
-| `id` | String (UUID) | Primary Key | Unique identifier for each user. |
-| `name` | String |  | User’s full name for display. |
-| `email` | String | Unique, Indexed | Used for authentication and identification. |
-| `role` | enum | User and Admin Role
-| `password` | String |  | Securely stored hashed password. |
-| `createdAt` | DateTime | Default: now() | Timestamp when the user was created. |
-| `updatedAt` | DateTime | Auto-updated | Timestamp for last update. |
-| `deletedAt` | DateTime | Auto-updated | Timestamp for last delete. |
+| `id` | int(UUID) | Primary Key | Unique identifier for each user. |
+| `name` | varchar|  | User’s full name for display. |
+| `email` | varchar| Unique, Indexed | Used for authentication and identification. |
+| `role_id` | int | User and Admin Role |
+| `password` | varchar|  | Securely stored hashed password. |
+| `created_at` | Timestamp | Default: now() | Timestamp when the user was created. |
+| `updated_at` | Timestamp | null | Timestamp for last update. |
+| `deleted_at` | Timestamp |  null |Timestamp for last delete. |
 
 ---
 
@@ -23,14 +23,15 @@ This section outlines the database schema used in the project, detailing each ta
 
 | Field | Type | Constraints | Description / Use Case |
 |-------|------|--------------|-------------------------|
-| `id` | String (UUID) | Primary Key | Unique project identifier. |
-| `name` | String |  | Project name displayed in UI. |
-| `gitUrl` | String | Indexed | GitHub repository URL linked to the project. |
-| `userId` | String | Foreign Key → `User.id` | Identifies the owner of the project. |
-| `createdAt` | DateTime | Default: now() | Project creation timestamp. |
-| `githubToken` | String (Optional) |  | Hashed token for GitHub integration, allowing deployments via repositories. |
-| `updatedAt` | DateTime | Auto-updated | Timestamp for last update. |
-| `deletedAt` | DateTime | Auto-updated | Timestamp for last delete. |
+| `id` | int(UUID) | Primary Key | Unique project identifier. |
+| `name` | varchar|  | Project name displayed in UI. |
+| `git_url` | varchar| Indexed | GitHub repository URL linked to the project. |
+| `user_id` | int | Foreign Key → `User.id` | Identifies the owner of the project. |
+| `created_at` |Timestamp | Default: now() | Project creation timestamp. |
+| `github_token` | varchar |  | Hashed token for GitHub integration, allowing deployments via repositories. |
+| `updated_at` | Timestamp| null | Timestamp for last |
+| `deleted_at` | Timestamp |  null |Timestamp for last delete. |
+
 
 ---
 
@@ -38,14 +39,30 @@ This section outlines the database schema used in the project, detailing each ta
 
 | Field | Type | Constraints | Description / Use Case |
 |-------|------|--------------|-------------------------|
-| `id` | String (UUID) | Primary Key | Unique deployment identifier. |
-| `projectId` | String | Foreign Key → `Project.id` | Identifies the project this deployment belongs to. |
-| `status` | String | Indexed, Default: `QUEUED` | Deployment lifecycle state (`QUEUED`, `RUNNING`, `COMPLETED`, `FAILED`). |
-| `createdAt` | DateTime | Default: now() | Timestamp of deployment creation. |
-| `updatedAt` | DateTime | Auto-updated | Timestamp for last update. |
-| `deletedAt` | DateTime | Auto-updated | Timestamp for last delete. |
+| `id` | int(UUID) | Primary Key | Unique deployment identifier. |
+| `project_id` | int | Foreign Key → `Project.id` | Identifies the project this deployment belongs to. |
+| `status` | varchar| Indexed, Default: `QUEUED` | Deployment lifecycle state (`QUEUED`, `RUNNING`, `COMPLETED`, `FAILED`). |
+| `created_at` |Timestamp | Default: now() | Timestamp of deployment creation. |
+| `updated_at` |Timestamp |null | Timestamp for last |
+| `deleted_at` | Timestamp |  null |Timestamp for last delete. |
+
+
 
 ---
+
+
+## Role Table
+
+
+| Field | Type | Constraints | Description / Use Case |
+|-------|------|--------------|-------------------------|
+| `id` | int(UUID) | Primary Key | role identifier. |
+| `name` | varchar| UK |Eg. USER, ADMIN |
+| `created_at` |Timestamp | Default: now() | Timestamp of deployment creation. |
+| `updated_at` |Timestamp |null | Timestamp for last updadeleted_at |Timestamp |null | Timestamp for last delete. |
+| `deleted_at` | Timestamp |  null |Timestamp for last delete. |
+
+
 
 
 ## Relationships Summary
@@ -56,39 +73,47 @@ This section outlines the database schema used in the project, detailing each ta
 ---
 
 ## Entity Relationship Diagram
-
 ```mermaid
 erDiagram
     users {
-        string id PK
-        string name
-        string email UK
-        enum role
-        string password
-        datetime created_at
-        datetime updated_at
-        datetime deleted_at
+        int id PK
+        varchar name
+        varchar email UK
+        int role_id FK
+        varchar password
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
+    }
+
+    roles {
+        int id PK
+        varchar name 
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
     }
 
     projects {
-        string id PK
-        string name
-        string git_url
-        string user_id FK
-        datetime created_at
-        datetime updated_at
-        datetime deleted_at
+        int id PK
+        varchar name
+        varchar git_url
+        int user_id FK
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
     }
 
     deployments {
-        string id PK
-        string project_id FK
-        string status
-        datetime created_at
-        datetime updated_at
-        datetime deleted_at
+        int id PK
+        int project_id FK
+        varchar status
+        timestamp created_at
+        timestamp updated_at
+        timestamp deleted_at
     }
 
-    users ||--o{ projects : owns
-    projects ||--o{ deployments : has
+    roles ||--o{ users : "assigns"
+    users ||--o{ projects : "owns"
+    projects ||--o{ deployments : "has"
 ```

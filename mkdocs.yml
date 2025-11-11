@@ -14,6 +14,12 @@ nav:
   - Schema Design: 
       - Tables and ER Diagram: data-modelling/tables-and-er-diagram.md
       - Indexing: data-modelling/indexing.md
+  
+  - Technical Document:
+      - Cloud-Infrastructure: technical-document/architecture.md
+      - Data-Flow-Diagram: technical-document/data-flow-diagram.md
+      - Authentication-And-Autherization: technical-document/authentication-and-autherization.md
+      - Technical Stack: technical-document/technical-stack.md
 plugins:
   - search
   - mermaid2
